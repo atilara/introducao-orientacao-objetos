@@ -10,6 +10,13 @@ public class Produto {
 
     private double preco;
 
+    public Produto(int codigo, String nome, String descricao, double preco) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.preco = preco;
+    }
+
     public int getCodigo() {
         return codigo;
     }

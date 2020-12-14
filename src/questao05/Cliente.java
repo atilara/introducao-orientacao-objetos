@@ -1,7 +1,6 @@
 package questao05;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
 public class Cliente {
@@ -9,7 +8,13 @@ public class Cliente {
 
     private String nome;
 
-    private LocalDateTime dataNascimento;
+    private LocalDate dataNascimento;
+
+    public Cliente(String cpf, String nome, LocalDate dataNascimento) {
+        this.cpf = cpf;
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+    }
 
     public String getCpf() {
         return cpf;
@@ -27,16 +32,16 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public LocalDateTime getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(LocalDateTime dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
-    long calcularIdade() {
+    int calcularIdade() {
         LocalDate dataAtual = LocalDate.now();
-        return dataAtual.until(dataNascimento, ChronoUnit.YEARS);
+        return ((int) dataNascimento.until(dataAtual, ChronoUnit.YEARS));
     }
 }
