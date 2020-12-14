@@ -1,28 +1,30 @@
 package questao05;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Venda {
 
     private ItemVenda[] itemVenda;
 
-    private LocalDate data;
+    private LocalDateTime data;
 
     private String atendente;
 
     private Cliente cliente;
 
-    public Venda(LocalDate data, String atendente) {
+    public Venda(LocalDateTime data, String atendente) {
         this.itemVenda = new ItemVenda[10];
         this.data = data;
         this.atendente = atendente;
     }
 
-    public LocalDate getData() {
+    public LocalDateTime getData() {
         return data;
     }
 
-    public void setData(LocalDate data) {
+    public void setData(LocalDateTime data) {
         this.data = data;
     }
 
@@ -64,12 +66,32 @@ public class Venda {
     }
 
     public void listarItensVenda() {
-        // Testando as informações
-        System.out.println(data);
-        System.out.println(cliente.getCpf() + "\n" + cliente.getNome() + "\n" + cliente.calcularIdade());
-        System.out.println(atendente);
-        System.out.println(itemVenda[0].getProdutoVendido().getNome() + "\n" + itemVenda[0].getProdutoVendido().getPreco() + "\n" + itemVenda[0].getQuantidade());
-        System.out.println(itemVenda[0].calcularTotal());
-        System.out.println(calcularTotal());
+        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("kk:mm - dd/MM/yyyy");
+
+        // Imprimindo informações iniciais
+        System.out.printf("%nData da venda: %s%n" +
+            "Nome do Cliente: %s | CPF: %s | Idade: %d%n" +
+            "Atendente: %s%n" +
+            "%18s | %11s | %10s | %10s%n" +
+            "----------------------------------------------------------------%n",
+            data.format(formatador), cliente.getNome(), cliente.getCpf(), cliente.calcularIdade(), atendente,
+            "Nome do produto", "Preço", "Quantidade", "Total");
+
+        // Imprimindo todos os itens vendidos usando um loop
+        int i;
+        for (i = 0; i < itemVenda.length; i++) {
+            if (itemVenda[i] != null) {
+                System.out.printf("%18s | R$ %8.2f | %10d | R$ %10.2f%n",
+                    itemVenda[i].getProdutoVendido().getNome(),
+                    itemVenda[i].getProdutoVendido().getPreco(),
+                    itemVenda[i].getQuantidade(),
+                    itemVenda[i].calcularTotal());
+            }
+        }
+
+        // Imprimindo total
+        System.out.printf("----------------------------------------------------------------%n" +
+            "Total da Venda: %38s %2.2f", "R$", calcularTotal());
+
     }
 }

@@ -1,6 +1,7 @@
 package questao05;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class TesteVendaMain {
 
@@ -27,7 +28,7 @@ public class TesteVendaMain {
         Cliente cliente = new Cliente("123456", "José Maria Marques", LocalDate.of(1994, 1, 1));
 
         // Instância da venda e associação do cliente
-        Venda venda = new Venda(LocalDate.of(2020, 12, 23), "Maria Dolores Sampaio");
+        Venda venda = new Venda(LocalDateTime.of(2020, 12, 23, 14, 30), "Maria Dolores Sampaio");
         venda.setCliente(cliente);
 
         // Adicionando itens
