@@ -25,7 +25,7 @@ public class TesteTimeMain {
 
         // Calculando período entre data lida e data atual
         System.out.println("\nNúmero de dias entre " + dataAtual.format(formatador) + " e "
-                + dataLida.format(formatador) + " é: " + dataAtual.until(dataLida, ChronoUnit.DAYS));
+                + dataLida.format(formatador) + " é: " + Math.abs(dataAtual.until(dataLida, ChronoUnit.DAYS)));
 
         // Somando 110 dias a data lida
         System.out.println(dataLida.format(formatador) + " + 110: " + dataLida.plusDays(110).format(formatador));
@@ -45,7 +45,7 @@ public class TesteTimeMain {
 
         // Cálculo e impressão da quantidade de dias
         System.out.println("A quantidade de dias úteis entre " + dataInicial.format(formatador)
-                + " e " + dataFinal.format(formatador) + " é: " + qtdDiasUteis(dataInicial, dataFinal));
+        + " e " + dataFinal.format(formatador) + " é: " + qtdDiasUteis(dataInicial, dataFinal));
 
     }
 
@@ -59,14 +59,12 @@ public class TesteTimeMain {
         // loop rodará de acordo com a qtd de dias
         for (int i = 1; i < qtdDias; i++) {
             // se for sábado ou domingo nada é feito
-            if (dataInicial.plusDays(i).getDayOfWeek().getValue() == 6 || dataInicial.plusDays(i).getDayOfWeek().getValue() == 7){
-
-            } else {
-                // se for outro dia é somado
+            if (dataInicial.plusDays(i).getDayOfWeek().getValue() != 6 &&
+                dataInicial.plusDays(i).getDayOfWeek().getValue() != 7){
                 qtdDiasUteis++;
             }
         }
-        return qtdDiasUteis + 1;
+        return Math.abs(qtdDiasUteis + 1);
     }
     
 }
