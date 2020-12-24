@@ -1,4 +1,4 @@
-package questao03;
+package lista01.estoque;
 
 public class TesteEstoqueMain {
 
