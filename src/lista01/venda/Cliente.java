@@ -1,4 +1,4 @@
-package questao05;
+package lista01.venda;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;

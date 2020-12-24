@@ -1,4 +1,4 @@
-package questao05;
+package lista01.venda;
 
 public class ItemVenda {
 

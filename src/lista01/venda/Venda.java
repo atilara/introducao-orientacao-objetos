@@ -1,6 +1,5 @@
-package questao05;
+package lista01.venda;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
