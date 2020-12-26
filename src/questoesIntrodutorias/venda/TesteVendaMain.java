@@ -1,4 +1,4 @@
-package lista01.venda;
+package questoesIntrodutorias.venda;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

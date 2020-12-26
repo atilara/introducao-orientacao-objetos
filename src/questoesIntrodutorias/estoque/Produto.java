@@ -1,4 +1,4 @@
-package lista01.estoque;
+package questoesIntrodutorias.estoque;
 
 public class Produto {
 

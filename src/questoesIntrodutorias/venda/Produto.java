@@ -1,4 +1,4 @@
-package lista01.venda;
+package questoesIntrodutorias.venda;
 
 public class Produto {
 

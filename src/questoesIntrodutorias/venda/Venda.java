@@ -1,4 +1,4 @@
-package lista01.venda;
+package questoesIntrodutorias.venda;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

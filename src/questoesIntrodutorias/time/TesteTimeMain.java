@@ -1,4 +1,4 @@
-package lista01.time;
+package questoesIntrodutorias.time;
 
 import java.util.Scanner;
 import java.time.LocalDate;

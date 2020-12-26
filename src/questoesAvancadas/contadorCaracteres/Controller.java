@@ -1,4 +1,4 @@
-package lista02.contadorCaracteres;
+package questoesAvancadas.contadorCaracteres;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
