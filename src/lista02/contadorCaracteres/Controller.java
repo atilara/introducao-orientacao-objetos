@@ -1,4 +1,4 @@
-package lista02.contadorpalavras;
+package lista02.contadorCaracteres;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -34,10 +34,9 @@ public class Controller {
         label.setText(text);
     }
 
-    // Conta as palavras presentes no TextArea utilizando método split
-    // Depois altera o texto presente no label
-    public void countWords() {
-        String[] numero = getTextArea().split("\\s+");
-        setLabel("O texto tem " + numero.length + " palavras");
+    // Conta os caracteres presentes no TextArea utilizando método lenght
+    // Antes de contar os caracteres remove todos os espaços utilizando replaceAll
+    public void countCharacters() {
+        setLabel("O texto tem " + getTextArea().replaceAll("\\s","").length() + " caracteres");
     }
 }

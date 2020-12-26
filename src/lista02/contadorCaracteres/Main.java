@@ -1,4 +1,4 @@
-package lista02.contadorpalavras;
+package lista02.contadorCaracteres;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
