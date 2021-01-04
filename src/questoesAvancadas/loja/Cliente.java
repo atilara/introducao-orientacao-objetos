@@ -1,14 +1,11 @@
 package questoesAvancadas.loja;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Cliente extends Pessoa {
 
     private long codigo;
-
-    public Cliente(String nome, LocalDate dataNascimento) {
-        super(nome, dataNascimento);
-    }
 
     public Cliente(String nome, LocalDate dataNascimento, long codigo) {
         super(nome, dataNascimento);
@@ -24,10 +21,20 @@ public class Cliente extends Pessoa {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Cliente)) return false;
+        if (!super.equals(o)) return false;
+        Cliente cliente = (Cliente) o;
+        return Objects.equals(codigo, cliente.codigo);
+    }
+
+    @Override
     public String toString() {
-        return "Cliente: " +
-                " nome=" + getNome() +
-                ", dataNascimento=" + getDataNascimento() +
-                ", codigo=" + codigo;
+        return "\nCliente{" +
+                "codigo=" + codigo +
+                ", nome='" + nome + '\'' +
+                ", dataNascimento=" + dataNascimento +
+                "}";
     }
 }

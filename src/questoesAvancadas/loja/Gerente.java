@@ -1,21 +1,14 @@
 package questoesAvancadas.loja;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Gerente extends Funcionario {
 
     private String areaAtuacao;
 
-    public Gerente(String nome, LocalDate dataNascimento) {
-        super(nome, dataNascimento);
-    }
-
-    public Gerente(String nome, LocalDate dataNascimento, double salario, double SALARIO_TETO_IMPOSTO) {
-        super(nome, dataNascimento, salario, SALARIO_TETO_IMPOSTO);
-    }
-
-    public Gerente(String nome, LocalDate dataNascimento, double salario, double SALARIO_TETO_IMPOSTO, String areaAtuacao) {
-        super(nome, dataNascimento, salario, SALARIO_TETO_IMPOSTO);
+    public Gerente(String nome, LocalDate dataNascimento, double salario, String areaAtuacao) {
+        super(nome, dataNascimento, salario);
         this.areaAtuacao = areaAtuacao;
     }
 
@@ -28,13 +21,25 @@ public class Gerente extends Funcionario {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Gerente)) return false;
+        if (!super.equals(o)) return false;
+
+        Gerente gerente = (Gerente) o;
+
+        return Objects.equals(areaAtuacao, gerente.areaAtuacao);
+    }
+
+    @Override
     public String toString() {
-        return "Gerente: " +
-                " nome=" + getNome() +
-                ", dataNascimento=" + getDataNascimento() +
-                ", SALARIO_TETO_IMPOSTO=" + getSALARIO_TETO_IMPOSTO() +
-                ", salario=" + getSalario() +
-                ", salario descontando impostos=" + calcularImposto() +
-                ", areaAtuacao=" + areaAtuacao;
+        return "\nGerente{" +
+                "Teto salarial=" + SALARIO_TETO_IMPOSTO +
+                ", SALARIO_TETO_IMPOSTO=" + SALARIO_TETO_IMPOSTO +
+                ", salario=" + salario +
+                ", areaAtuacao='" + areaAtuacao + '\'' +
+                ", nome='" + nome + '\'' +
+                ", dataNascimento=" + dataNascimento +
+                "}";
     }
 }

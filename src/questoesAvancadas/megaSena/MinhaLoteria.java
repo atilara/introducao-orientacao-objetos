@@ -8,8 +8,7 @@ public class MinhaLoteria {
         // Instância do bilhete premiado
         BilheteLoteria bilhetePremiado = new BilheteLoteria(6);
 
-        // Instância do ArrayList que irá armazenar os bilhetes, fiz fora do loop para não criar um
-        // ArrayList diferente sempre que o loop fosse executado
+        // Instância do ArrayList que irá armazenar os bilhetes
         ArrayList<BilheteLoteria> bilhetes = new ArrayList<>();
 
         // Laço Externo, que varia de 6 a 15
@@ -18,7 +17,6 @@ public class MinhaLoteria {
 
             // Variáveis auxiliares
             boolean ganhou = false;
-            int quantApostas = 0;
             int quantQuadras = 0;
             int quantQuinas = 0;
 
@@ -28,10 +26,6 @@ public class MinhaLoteria {
                 BilheteLoteria bilheteSorteado = new BilheteLoteria(i);
                 // Caso os 6 números do bilhete premiado estão contidos no bilhete sorteado
                 if (bilhetePremiado.qtdNumerosContidos(bilheteSorteado) == 6) {
-                    // Realizei o armazenamento dos bilhetes que ganharam o jogo no ArrayList
-                    // Infelizmente caso eu armazenasse todos (como foi solicitado)
-                    // a quantidade de memória utilizada pelo sistema estourava dava erro
-                    bilhetes.add(bilheteSorteado);
                     ganhou = true;
                 } else if (bilhetePremiado.qtdNumerosContidos(bilheteSorteado) == 5) {
                     quantQuinas++;
@@ -39,12 +33,14 @@ public class MinhaLoteria {
                     quantQuadras++;
                 }
 
-                // Aumento da quantidade de apostas
-                quantApostas++;
+                // Aumento da quantidade de apostas e adição dos bilhetes no ArrayList
+                bilhetes.add(bilheteSorteado);
             }
-            System.out.println("\nJogos de " + i + " números: você apostou " + quantApostas + " vezes" +
+            System.out.println("\nJogos de " + i + " números: você apostou " + bilhetes.size() + 1 + " vezes" +
                     " para ganhar na mega-sena. Dentre esses jogos, você acertou " + quantQuadras +
                     " quadras e " + quantQuinas + " quinas.");
+            // Limpeza do ArrayList
+            bilhetes.removeAll(bilhetes);
 
         }
     }

@@ -1,29 +1,21 @@
 package questoesAvancadas.loja;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
-public class Funcionario  extends Pessoa {
+public class Funcionario extends Pessoa {
 
-    private double SALARIO_TETO_IMPOSTO;
+    protected static final double SALARIO_TETO_IMPOSTO = 1100;
 
-    private double salario;
+    protected double salario;
 
-    public Funcionario(String nome, LocalDate dataNascimento) {
-        super(nome, dataNascimento);
-    }
-
-    public Funcionario(String nome, LocalDate dataNascimento, double salario, double SALARIO_TETO_IMPOSTO) {
+    public Funcionario(String nome, LocalDate dataNascimento, double salario) {
         super(nome, dataNascimento);
         this.salario = salario;
-        this.SALARIO_TETO_IMPOSTO = SALARIO_TETO_IMPOSTO;
     }
 
-    public double getSALARIO_TETO_IMPOSTO() {
+    public static double getSalarioTetoImposto() {
         return SALARIO_TETO_IMPOSTO;
-    }
-
-    public void setSALARIO_TETO_IMPOSTO(double SALARIO_TETO_IMPOSTO) {
-        this.SALARIO_TETO_IMPOSTO = SALARIO_TETO_IMPOSTO;
     }
 
     public double getSalario() {
@@ -35,13 +27,25 @@ public class Funcionario  extends Pessoa {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Funcionario)) return false;
+        if (!super.equals(o)) return false;
+
+        Funcionario funcionario = (Funcionario) o;
+
+        return Objects.equals(salario, funcionario.salario);
+    }
+
+    @Override
     public String toString() {
-        return "Funcionario: " +
-                " nome=" + getNome() +
-                ", dataNascimento=" + getDataNascimento() +
-                ", SALARIO_TETO_IMPOSTO=" + SALARIO_TETO_IMPOSTO +
+        return "\nFuncionario{" +
+                "Teto salarial=" + SALARIO_TETO_IMPOSTO +
+                ", Valor do salário com imposto=" + calcularImposto() +
                 ", salario=" + salario +
-                ", salario descontando impostos=" + calcularImposto();
+                ", nome='" + nome + '\'' +
+                ", dataNascimento=" + dataNascimento +
+                "}";
     }
 
     public double calcularImposto() {

@@ -3,11 +3,11 @@ package questoesAvancadas.loja;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Pessoa {
+public abstract class Pessoa {
 
-    private String nome;
+    protected String nome;
 
-    private LocalDate dataNascimento;
+    protected LocalDate dataNascimento;
 
     public Pessoa(String nome, LocalDate dataNascimento) {
         this.nome = nome;
@@ -40,9 +40,10 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        return "Pessoa:" +
-                " nome=" + nome +
-                ", dataNascimento=" + dataNascimento;
+        return "\nPessoa{" +
+                "nome='" + nome + '\'' +
+                ", dataNascimento=" + dataNascimento +
+                "}";
     }
 
 }
