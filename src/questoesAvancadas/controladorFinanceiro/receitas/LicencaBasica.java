@@ -2,6 +2,10 @@ package questoesAvancadas.controladorFinanceiro.receitas;
 
 public class LicencaBasica extends Receita {
 
+    public LicencaBasica(int totalContas) {
+        this.totalContas = totalContas;
+    }
+
     private int totalContas;
 
     public int getTotalContas() {

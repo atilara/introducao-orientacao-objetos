@@ -4,6 +4,10 @@ public class LicensaPlus extends Receita {
 
     private int totalContas;
 
+    public LicensaPlus(int totalContas) {
+        this.totalContas = totalContas;
+    }
+
     public int getTotalContas() {
         return totalContas;
     }

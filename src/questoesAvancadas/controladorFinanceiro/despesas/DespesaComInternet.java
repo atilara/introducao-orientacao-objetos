@@ -4,6 +4,10 @@ public class DespesaComInternet extends Despesa {
 
     private double dadosTrafegados;
 
+    public DespesaComInternet(double dadosTrafegados) {
+        this.dadosTrafegados = dadosTrafegados;
+    }
+
     public double getDadosTrafegados() {
         return dadosTrafegados;
     }

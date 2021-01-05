@@ -4,6 +4,10 @@ public class LicensaEnterprise extends Receita {
 
     private int totalContas;
 
+    public LicensaEnterprise(int totalContas) {
+        this.totalContas = totalContas;
+    }
+
     public int getTotalContas() {
         return totalContas;
     }

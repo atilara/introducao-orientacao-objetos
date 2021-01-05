@@ -4,6 +4,10 @@ public class DespesaComAgua extends Despesa {
 
     private double totalM3;
 
+    public DespesaComAgua(double totalM3) {
+        this.totalM3 = totalM3;
+    }
+
     public double getTotalM3() {
         return totalM3;
     }

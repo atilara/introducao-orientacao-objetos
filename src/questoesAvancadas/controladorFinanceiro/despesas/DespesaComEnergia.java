@@ -4,6 +4,10 @@ public class DespesaComEnergia extends Despesa {
 
     private double kWh;
 
+    public DespesaComEnergia(double kWh) {
+        this.kWh = kWh;
+    }
+
     public double getkWh() {
         return kWh;
     }
