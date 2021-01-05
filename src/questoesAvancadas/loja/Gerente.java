@@ -35,8 +35,8 @@ public class Gerente extends Funcionario {
     public String toString() {
         return "\nGerente{" +
                 "Teto salarial=" + SALARIO_TETO_IMPOSTO +
-                ", SALARIO_TETO_IMPOSTO=" + SALARIO_TETO_IMPOSTO +
                 ", salario=" + salario +
+                ", Salário com imposto descontado=" + calcularImposto() +
                 ", areaAtuacao='" + areaAtuacao + '\'' +
                 ", nome='" + nome + '\'' +
                 ", dataNascimento=" + dataNascimento +
