@@ -1,15 +1,15 @@
 package questoesAvancadas.controladorFinanceiro;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public interface Transacao {
 
-    LocalDate getData();
+    LocalDateTime getData();
 
     String getTipo();
 
     String getDescricao();
 
-    String calcularTotal();
+    double calcularTotal();
 
 }

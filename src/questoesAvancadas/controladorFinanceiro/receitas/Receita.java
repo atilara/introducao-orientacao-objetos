@@ -2,28 +2,32 @@ package questoesAvancadas.controladorFinanceiro.receitas;
 
 import questoesAvancadas.controladorFinanceiro.Transacao;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public abstract class Receita implements Transacao {
 
+    protected LocalDateTime data;
+
+    protected String descricao;
+
     @Override
-    public LocalDate getData() {
+    public LocalDateTime getData() {
         return null;
     }
 
     @Override
     public String getTipo() {
-        return null;
+        return "RECEITA";
     }
 
     @Override
     public String getDescricao() {
-        return null;
+        return descricao;
     }
 
     @Override
-    public String calcularTotal() {
-        return null;
+    public double calcularTotal() {
+        return 1;
     }
 
 }

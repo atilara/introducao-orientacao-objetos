@@ -2,28 +2,32 @@ package questoesAvancadas.controladorFinanceiro.despesas;
 
 import questoesAvancadas.controladorFinanceiro.Transacao;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public abstract class Despesa implements Transacao {
 
+    protected LocalDateTime data;
+
+    protected String descricao;
+
     @Override
-    public LocalDate getData() {
-        return null;
+    public LocalDateTime getData() {
+        return data;
     }
 
     @Override
     public String getTipo() {
-        return null;
+        return "DESPESA";
     }
 
     @Override
     public String getDescricao() {
-        return null;
+        return descricao;
     }
 
     @Override
-    public String calcularTotal() {
-        return null;
+    public double calcularTotal() {
+        return 1;
     }
 
 }
