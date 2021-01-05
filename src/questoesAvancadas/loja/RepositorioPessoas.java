@@ -55,12 +55,26 @@ public class RepositorioPessoas {
         return retorno;
     }
 
-    public String listarFuncionariosComSalarioMaiorQue(double salario) {
-        return "Funcionários: ";
+    public ArrayList<Funcionario> listarFuncionariosComSalarioMaiorQue(double salario) {
+        ArrayList<Funcionario> retorno = new ArrayList<>();
+
+        for (Pessoa p : pessoas) {
+            if (p instanceof Funcionario && ((Funcionario) p).getSalario() > salario) {
+                retorno.add((Funcionario) p);
+            }
+        }
+        return retorno;
     }
 
-    public String listarGerentesDaArea(String area) {
-        return "Gerentes: ";
+    public ArrayList<Gerente> listarGerentesDaArea(String area) {
+        ArrayList<Gerente> retorno = new ArrayList<>();
+
+        for (Pessoa p : pessoas) {
+            if (p instanceof Gerente && ((Gerente) p).getAreaAtuacao().equals(area)) {
+                retorno.add((Gerente) p);
+            }
+        }
+        return retorno;
     }
 
 }
