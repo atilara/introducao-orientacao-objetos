@@ -52,7 +52,7 @@ public class Funcionario extends Pessoa {
         if (salario <= SALARIO_TETO_IMPOSTO) {
             return salario - (salario * 0.05);
         } else {
-            return salario - (salario * 0.75);
+            return salario - (salario * 0.075);
         }
     }
 }
