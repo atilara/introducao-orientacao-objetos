@@ -25,9 +25,4 @@ public abstract class Despesa implements Transacao {
         return descricao;
     }
 
-    @Override
-    public double calcularTotal() {
-        return 1;
-    }
-
 }
