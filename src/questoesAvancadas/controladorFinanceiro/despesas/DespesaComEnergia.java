@@ -1,10 +1,14 @@
 package questoesAvancadas.controladorFinanceiro.despesas;
 
+import java.time.LocalDateTime;
+
 public class DespesaComEnergia extends Despesa {
 
     private double kWh;
 
-    public DespesaComEnergia(double kWh) {
+    public DespesaComEnergia(LocalDateTime data, String descricao, double kWh) {
+        this.data = data;
+        this.descricao = descricao;
         this.kWh = kWh;
     }
 

@@ -1,12 +1,17 @@
 package questoesAvancadas.controladorFinanceiro.despesas;
 
+import java.time.LocalDateTime;
+
 public class DespesaComAgua extends Despesa {
 
     private double totalM3;
 
-    public DespesaComAgua(double totalM3) {
+    public DespesaComAgua(LocalDateTime data, String descricao, double totalM3) {
+        this.data = data;
+        this.descricao = descricao;
         this.totalM3 = totalM3;
     }
+
 
     public double getTotalM3() {
         return totalM3;
@@ -18,10 +23,11 @@ public class DespesaComAgua extends Despesa {
 
     @Override
     public double calcularTotal() {
-        double valorFinal = 45;
-
-        if (totalM3 > 10 && totalM3 <= 20) valorFinal += (totalM3 - 10) * 5;
-        if (totalM3 > 20) valorFinal += (totalM3 - 20) * 6;
+        final double VALOR_FIXO = 45;
+        double valorFinal = 0;
+        if (totalM3 < 10) valorFinal = VALOR_FIXO;
+        if (totalM3 <= 20) valorFinal = VALOR_FIXO + 5 * (totalM3 - 10);
+        else valorFinal = VALOR_FIXO + 5 * 10 + 6 * (totalM3 - 20);
 
         return valorFinal;
     }

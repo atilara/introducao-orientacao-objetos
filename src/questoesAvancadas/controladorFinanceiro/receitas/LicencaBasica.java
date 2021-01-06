@@ -1,12 +1,16 @@
 package questoesAvancadas.controladorFinanceiro.receitas;
 
+import java.time.LocalDateTime;
+
 public class LicencaBasica extends Receita {
 
-    public LicencaBasica(int totalContas) {
+    private int totalContas;
+
+    public LicencaBasica(LocalDateTime data, String descricao, int totalContas) {
+        this.data = data;
+        this.descricao = descricao;
         this.totalContas = totalContas;
     }
-
-    private int totalContas;
 
     public int getTotalContas() {
         return totalContas;

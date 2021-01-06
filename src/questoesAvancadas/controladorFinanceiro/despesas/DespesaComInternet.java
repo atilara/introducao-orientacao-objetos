@@ -1,11 +1,15 @@
 package questoesAvancadas.controladorFinanceiro.despesas;
 
+import java.time.LocalDateTime;
+
 public class DespesaComInternet extends Despesa {
 
     private double dadosTrafegados;
 
-    public DespesaComInternet(double dadosTrafegados) {
-        this.dadosTrafegados = dadosTrafegados;
+    public DespesaComInternet(LocalDateTime data, String descricao, double dadosTrafegados) {
+        this.data = data;
+        this.descricao = descricao;
+        this.dadosTrafegados = DespesaComInternet.this.dadosTrafegados;
     }
 
     public double getDadosTrafegados() {

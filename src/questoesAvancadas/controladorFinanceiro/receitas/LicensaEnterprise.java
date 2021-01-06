@@ -1,10 +1,14 @@
 package questoesAvancadas.controladorFinanceiro.receitas;
 
+import java.time.LocalDateTime;
+
 public class LicensaEnterprise extends Receita {
 
     private int totalContas;
 
-    public LicensaEnterprise(int totalContas) {
+    public LicensaEnterprise(LocalDateTime data, String descricao, int totalContas) {
+        this.data = data;
+        this.descricao = descricao;
         this.totalContas = totalContas;
     }
 
