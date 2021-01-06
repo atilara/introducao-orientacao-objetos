@@ -2,11 +2,11 @@ package questoesAvancadas.controladorFinanceiro.receitas;
 
 import java.time.LocalDateTime;
 
-public class LicensaEnterprise extends Receita {
+public class LicencaPlus extends Receita {
 
     private int totalContas;
 
-    public LicensaEnterprise(LocalDateTime data, String descricao, int totalContas) {
+    public LicencaPlus(LocalDateTime data, String descricao, int totalContas) {
         this.data = data;
         this.descricao = descricao;
         this.totalContas = totalContas;
@@ -22,7 +22,7 @@ public class LicensaEnterprise extends Receita {
 
     @Override
     public double calcularTotal() {
-        return totalContas * 150;
+        return totalContas * 35;
     }
 
 }
