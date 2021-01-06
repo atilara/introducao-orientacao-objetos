@@ -1,5 +1,8 @@
 package questoesAvancadas.controladorFinanceiro;
 
+import questoesAvancadas.controladorFinanceiro.despesas.Despesa;
+import questoesAvancadas.controladorFinanceiro.receitas.Receita;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -43,7 +46,7 @@ public class FluxoCaixa {
         LocalDateTime inicioTime = inicio.atTime(0, 0);
         LocalDateTime fimTime = fim.atTime(23, 59);
         for (Transacao t : transacoes) {
-            if (t.getData().isAfter(inicioTime) && t.getData().isBefore(fimTime)){
+            if (t instanceof Despesa && t.getData().isAfter(inicioTime) && t.getData().isBefore(fimTime)){
                 valorDespesas += t.calcularTotal();
             }
         }
@@ -51,7 +54,15 @@ public class FluxoCaixa {
     }
 
     double calcularReceitas (LocalDate inicio, LocalDate fim) {
-        return 1;
+        double valorReceitas = 0;
+        LocalDateTime inicioTime = inicio.atTime(0, 0);
+        LocalDateTime fimTime = fim.atTime(23, 59);
+        for (Transacao t : transacoes) {
+            if (t instanceof Receita && t.getData().isAfter(inicioTime) && t.getData().isBefore(fimTime)){
+                valorReceitas += t.calcularTotal();
+            }
+        }
+        return valorReceitas;
     }
 
     double percentualDespesasNoMes(int mes, int ano) {

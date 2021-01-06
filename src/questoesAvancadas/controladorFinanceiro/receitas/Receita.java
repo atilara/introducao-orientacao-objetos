@@ -12,7 +12,7 @@ public abstract class Receita implements Transacao {
 
     @Override
     public LocalDateTime getData() {
-        return null;
+        return data;
     }
 
     @Override
