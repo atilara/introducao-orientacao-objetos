@@ -3,6 +3,7 @@ package questoesAvancadas.controladorFinanceiro.receitas;
 import questoesAvancadas.controladorFinanceiro.Transacao;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public abstract class Receita implements Transacao {
 
@@ -25,4 +26,19 @@ public abstract class Receita implements Transacao {
         return descricao;
     }
 
+    @Override
+    public double calcularTotal() {
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        DateTimeFormatter ft = DateTimeFormatter.ofPattern("kk:mm - dd/MM/yyyy");
+
+        return "Receita{" +
+                "data=" + data.format(ft) +
+                ", descricao='" + descricao + '\'' +
+                ", total=" + calcularTotal() +
+                '}';
+    }
 }
