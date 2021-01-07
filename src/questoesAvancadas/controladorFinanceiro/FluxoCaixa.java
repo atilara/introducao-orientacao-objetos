@@ -6,6 +6,7 @@ import questoesAvancadas.controladorFinanceiro.receitas.Receita;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 public class FluxoCaixa {
 
@@ -66,19 +67,53 @@ public class FluxoCaixa {
     }
 
     double percentualDespesasNoMes(int mes, int ano) {
-        return 1;
+        double totalDespesas = 0;
+        double totalTransacoes = 0;
+        for (Transacao t : transacoes) {
+            if (t.getData().getMonthValue() == mes && t.getData().getYear() == ano) {
+                if (t instanceof Despesa) totalDespesas += t.calcularTotal();
+                totalTransacoes += t.calcularTotal();
+            }
+        }
+
+        return (totalDespesas / totalTransacoes) * 100;
     }
 
     double percentualReceitasNoMes(int mes, int ano) {
-        return 1;
+        double totalReceitas = 0;
+        double totalTransacoes = 0;
+        for (Transacao t : transacoes) {
+            if (t.getData().getMonthValue() == mes && t.getData().getYear() == ano) {
+                if (t instanceof Receita) totalReceitas += t.calcularTotal();
+                totalTransacoes += t.calcularTotal();
+            }
+        }
+
+        return (totalReceitas / totalTransacoes) * 100;
     }
 
     double saldoAtual() {
-        return 1;
+        double totalDespesas = 0;
+        double totalReceitas = 0;
+
+        for (Transacao t : transacoes) {
+            if (t instanceof Despesa) totalDespesas += t.calcularTotal();
+            if (t instanceof Receita) totalReceitas += t.calcularTotal();
+        }
+
+        return totalReceitas - totalDespesas;
     }
 
-//    List<Transacao> listarTransacoesNoMes(int mes, int ano) {
-//        List<Transacao> transacoes = new List<>();
-//    }
+    public List<Transacao> listarTransacoesNoMes(int mes, int ano) {
+        ArrayList<Transacao> transacoesNoMes = new ArrayList<>();
+
+        for (Transacao t : transacoes) {
+            if (t.getData().getMonthValue() == mes && t.getData().getYear() == ano) transacoesNoMes.add(t);
+        }
+
+        return transacoesNoMes;
+    }
+
+
 
 }

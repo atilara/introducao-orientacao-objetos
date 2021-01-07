@@ -14,6 +14,8 @@ public class TesteControladorFinanceiro {
 
     public static void main(String[] args) {
 
+        FluxoCaixa f = new FluxoCaixa("Blitzwolf", "0000-0");
+
         DespesaComAgua despesaComAgua = new DespesaComAgua(
                 LocalDateTime.of(2014, 12, 10, 12, 10),
                 "Conta de dezembro de 2014",
@@ -38,13 +40,12 @@ public class TesteControladorFinanceiro {
 
         System.out.println("despesaComEnergia: " + despesaComEnergia.calcularTotal());
 
-        FluxoCaixa f = new FluxoCaixa("Blitzwolf", "0000-0");
-
         f.adicionarTransacao(despesaComAgua);
         f.adicionarTransacao(despesaComInternet);
         f.adicionarTransacao(despesaComEnergia);
 
         System.out.println(
+                "calcularTotalDespesas: " +
                 f.calcularDespesas(
                         LocalDate.of(2014, 10, 10),
                         LocalDate.of(2014, 12, 20)
@@ -54,19 +55,19 @@ public class TesteControladorFinanceiro {
         LicencaBasica licencaBasica = new LicencaBasica(
                 LocalDateTime.of(2020, 9, 13, 3, 5),
                 "Licenças básicas",
-                40
+                10
         );
 
         LicencaPlus licencaPlus = new LicencaPlus(
                 LocalDateTime.of(2019, 9, 13, 3, 5),
                 "Licenças plus",
-                32
+                5
         );
 
         LicencaEnterprise licencaEnterprise = new LicencaEnterprise(
                 LocalDateTime.of(2015, 9, 13, 3, 5),
                 "Licenças básicas",
-                20
+                3
         );
 
         System.out.println("licencaBasica: " + licencaBasica.calcularTotal());
@@ -80,11 +81,20 @@ public class TesteControladorFinanceiro {
         f.adicionarTransacao(licencaEnterprise);
 
         System.out.println(
+                "calcularTotalReceitas: " +
                 f.calcularReceitas(
                         LocalDate.of(2019, 1, 1),
                         LocalDate.of(2020, 12, 31)
                 )
         );
+
+        System.out.println("percentualDespesasNoMes: " + f.percentualDespesasNoMes(12, 2014));
+
+        System.out.println("percentualReceitasNoMes: " + f.percentualReceitasNoMes(12, 2014));
+
+        System.out.println("saldoAtual: " + f.saldoAtual());
+
+        System.out.println("listaDeTransacoesNoMes: " + f.listarTransacoesNoMes(12, 2014));
 
     }
 
