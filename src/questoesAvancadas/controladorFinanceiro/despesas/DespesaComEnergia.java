@@ -22,8 +22,7 @@ public class DespesaComEnergia extends Despesa {
 
     @Override
     public double calcularTotal() {
-        double valorFinal = 0;
-        valorFinal *= 0.5;
+        double valorFinal = kWh * 0.5;
 
         if (valorFinal <= 50) valorFinal += 2;
         if (valorFinal > 50 && valorFinal <= 200) valorFinal += 15;

@@ -9,7 +9,7 @@ public class DespesaComInternet extends Despesa {
     public DespesaComInternet(LocalDateTime data, String descricao, double dadosTrafegados) {
         this.data = data;
         this.descricao = descricao;
-        this.dadosTrafegados = DespesaComInternet.this.dadosTrafegados;
+        this.dadosTrafegados = dadosTrafegados;
     }
 
     public double getDadosTrafegados() {
