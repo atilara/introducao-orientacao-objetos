@@ -38,11 +38,11 @@ public class FluxoCaixa {
         this.cnpj = cnpj;
     }
 
-    void adicionarTransacao (Transacao transacao) {
+    public void adicionarTransacao (Transacao transacao) {
         transacoes.add(transacao);
     }
 
-    double calcularDespesas (LocalDate inicio, LocalDate fim) {
+    public double calcularDespesas (LocalDate inicio, LocalDate fim) {
         double valorDespesas = 0;
         LocalDateTime inicioTime = inicio.atTime(0, 0);
         LocalDateTime fimTime = fim.atTime(23, 59);
@@ -54,7 +54,7 @@ public class FluxoCaixa {
         return valorDespesas;
     }
 
-    double calcularReceitas (LocalDate inicio, LocalDate fim) {
+    public double calcularReceitas (LocalDate inicio, LocalDate fim) {
         double valorReceitas = 0;
         LocalDateTime inicioTime = inicio.atTime(0, 0);
         LocalDateTime fimTime = fim.atTime(23, 59);
@@ -66,7 +66,7 @@ public class FluxoCaixa {
         return valorReceitas;
     }
 
-    double percentualDespesasNoMes(int mes, int ano) {
+    public double percentualDespesasNoMes(int mes, int ano) {
         double totalDespesas = 0;
         double totalTransacoes = 0;
         for (Transacao t : transacoes) {
@@ -79,7 +79,7 @@ public class FluxoCaixa {
         return (totalDespesas / totalTransacoes) * 100;
     }
 
-    double percentualReceitasNoMes(int mes, int ano) {
+    public double percentualReceitasNoMes(int mes, int ano) {
         double totalReceitas = 0;
         double totalTransacoes = 0;
         for (Transacao t : transacoes) {
@@ -92,7 +92,7 @@ public class FluxoCaixa {
         return (totalReceitas / totalTransacoes) * 100;
     }
 
-    double saldoAtual() {
+    public double saldoAtual() {
         double totalDespesas = 0;
         double totalReceitas = 0;
 
@@ -113,7 +113,5 @@ public class FluxoCaixa {
 
         return transacoesNoMes;
     }
-
-
 
 }
