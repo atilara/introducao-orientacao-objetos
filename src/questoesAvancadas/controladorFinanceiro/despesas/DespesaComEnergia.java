@@ -24,10 +24,10 @@ public class DespesaComEnergia extends Despesa {
     public double calcularTotal() {
         double valorFinal = kWh * 0.5;
 
-        if (valorFinal <= 50) valorFinal += 2;
-        if (valorFinal > 50 && valorFinal <= 200) valorFinal += 15;
-        if (valorFinal > 200) valorFinal += 35;
-        if (valorFinal % 100 == 0) valorFinal += valorFinal*(valorFinal / 100);
+        if (kWh <= 50) valorFinal += 2;
+        if (kWh > 50 && kWh <= 200) valorFinal += 15;
+        if (kWh > 200) valorFinal += 35;
+        if (kWh % 100 == 0) valorFinal += (kWh/100) * 1.2;
 
         return valorFinal;
     }
