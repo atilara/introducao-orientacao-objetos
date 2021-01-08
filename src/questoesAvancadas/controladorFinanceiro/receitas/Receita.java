@@ -27,9 +27,7 @@ public abstract class Receita implements Transacao {
     }
 
     @Override
-    public double calcularTotal() {
-        return 0;
-    }
+    public abstract double calcularTotal();
 
     @Override
     public String toString() {
