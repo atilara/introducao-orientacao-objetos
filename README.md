@@ -25,7 +25,6 @@ Para rodar os códigos é necessário:
 
 - Faça um `fork` do repositório
 - Crie uma branch para sua feature: `git checkout -b my-feature`
-- Caso queira responder as perguntas, o enunciado se encontra nos arquivos `README.md` de cada pasta, bastando excluir o `main.c`, que é minha resposta
 - Commite suas mudanças: `git commit -m "My commit"`
 - Realize o push da sua branch: `git push origin my-feature`
 
